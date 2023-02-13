@@ -29,6 +29,13 @@ class CarService {
     if (!car) throw new TypeError(404, 'Car not found');
     return this.carDomain(car);
   }
+
+  public async updateCar(id: string, obj: Partial<ICar>) {
+    const car = await this.model.findOne(id);
+    if (!car) throw new TypeError(404, 'Car not found');
+    const update = await this.model.updateCar(id, obj);
+    return this.carDomain(update);
+  }
 }
 
 export default CarService;

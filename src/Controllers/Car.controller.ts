@@ -51,6 +51,19 @@ class CarController {
       }
     }
   }
+
+  public async updateCar(): Promise<Response | undefined> {
+    try {
+      const data = this.req.body;
+      const { id } = this.req.params;
+      const result = await this.service.updateCar(id, data);
+      return this.res.status(200).json(result);
+    } catch (error) {
+      if (error instanceof TypeError) {
+        return this.res.status(error.statusCode).json({ message: error.message });
+      }
+    }
+  }
 }
 
 export default CarController;

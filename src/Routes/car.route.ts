@@ -13,6 +13,11 @@ routes.get(
   (req, res, next) => new CarController(req, res, next).findOne(),
 );
 
+routes.put(
+  '/cars/:id',
+  (req, res, next) => new CarController(req, res, next).updateCar(),
+);
+
 routes.get(
   '/cars',
   (req, res, next) => new CarController(req, res, next).findAll(),
