@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction } from 'express';
 import CarService from '../Services/Car.service';
 import ICar from '../Interfaces/ICar';
+import TypeError from '../Utils/TypeError';
 
 class CarController {
   private req: Request;
@@ -31,6 +32,23 @@ class CarController {
       return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
+    }
+  }
+
+  public async findAll(): Promise<Response> {
+    const result = await this.service.findAll();
+    return this.res.status(200).json(result);
+  }
+
+  public async findOne(): Promise<Response | undefined> {
+    try {
+      const { id } = this.req.params;
+      const result = await this.service.findOne(id);
+      return this.res.status(200).json(result);
+    } catch (error) {
+      if (error instanceof TypeError) {
+        return this.res.status(error.statusCode).json({ message: error.message });
+      }
     }
   }
 }
