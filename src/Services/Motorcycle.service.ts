@@ -3,6 +3,8 @@ import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleModel from '../Models/MotorcycleODM';
 import TypeError from '../Utils/TypeError';
 
+const notFound = 'Motorcycle not found';
+
 class MotorcycleService {
   private model: MotorcycleModel = new MotorcycleModel();
   private motorcycleDomain(motorcycle: IMotorcycle | null): Motorcycle | null {
@@ -26,15 +28,21 @@ class MotorcycleService {
 
   public async findOne(id: string) {
     const motorcycle = await this.model.findOne(id);
-    if (!motorcycle) throw new TypeError(404, 'Motorcycle not found');
+    if (!motorcycle) throw new TypeError(404, notFound);
     return this.motorcycleDomain(motorcycle);
   }
 
   public async updateMotorcycle(id: string, obj: Partial<IMotorcycle>) {
     const motorcycle = await this.model.findOne(id);
-    if (!motorcycle) throw new TypeError(404, 'Motorcycle not found');
+    if (!motorcycle) throw new TypeError(404, notFound);
     const update = await this.model.update(id, obj);
     return this.motorcycleDomain(update);
+  }
+
+  public async deleteMotorcycle(id: string) {
+    const motorcycle = await this.model.findOne(id);
+    if (!motorcycle) throw new TypeError(404, notFound);
+    await this.model.delete(id);
   }
 }
 

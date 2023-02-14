@@ -64,6 +64,18 @@ class MotorcycleController {
       }
     }
   }
+
+  public async deleteMotorcycle(): Promise<Response | undefined> {
+    try {
+      const { id } = this.req.params;
+      await this.service.deleteMotorcycle(id);
+      return this.res.status(204).json();
+    } catch (error) {
+      if (error instanceof TypeError) {
+        return this.res.status(error.statusCode).json({ message: error.message });
+      }
+    }
+  }
 }
 
 export default MotorcycleController;

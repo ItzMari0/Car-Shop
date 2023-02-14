@@ -64,6 +64,18 @@ class CarController {
       }
     }
   }
+
+  public async deleteCar(): Promise<Response | undefined> {
+    try {
+      const { id } = this.req.params;
+      await this.service.deleteCar(id);
+      return this.res.status(204).json();
+    } catch (error) {
+      if (error instanceof TypeError) {
+        return this.res.status(error.statusCode).json({ message: error.message });
+      }
+    }
+  }
 }
 
 export default CarController;
