@@ -31,6 +31,19 @@ const carList = [
   },
 ];
 
+const motorcycleList = [
+  {
+    id: '63ebe1b071330a65ace5b491',
+    model: 'Honda Cb 600f Hornet',
+    year: 2005,
+    color: 'Yellow',
+    status: true,
+    buyValue: 30,
+    category: 'Street',
+    engineCapacity: 600,
+  },
+];
+
 const wrongId = '63eacbf28640e35558f743';
 
 const foundCar = {
@@ -44,6 +57,17 @@ const foundCar = {
   seatsQty: 5,
 };
 
+const foundMotorcycle = {
+  id: '63ebe1b071330a65ace5b491',
+  model: 'Honda Cb 600f Hornet',
+  year: 2005,
+  color: 'Yellow',
+  status: true,
+  buyValue: 30,
+  category: 'Street',
+  engineCapacity: 600,
+};
+
 const newCar = {
   id: '63ead64c8640e35558f743fd',
   model: 'WRX',
@@ -53,6 +77,17 @@ const newCar = {
   buyValue: 140,
   doorsQty: 4,
   seatsQty: 5,
+};
+
+const newMotorcycle = {
+  id: '63ebe3ab71330a65ace5b493',
+  model: 'Ducati Diavel 1260 S',
+  year: 2023,
+  color: 'Black',
+  status: true,
+  buyValue: 132.99,
+  category: 'Street',
+  engineCapacity: 1.262,
 };
 
 const updatedData = {
@@ -65,6 +100,11 @@ const updatedCar = {
   ...updatedData,
 };
 
+const updatedMotorcycle = {
+  ...newMotorcycle,
+  ...updatedData,
+};
+
 export {
   carList,
   wrongId,
@@ -72,4 +112,8 @@ export {
   newCar,
   updatedData,
   updatedCar,
+  motorcycleList,
+  foundMotorcycle,
+  newMotorcycle,
+  updatedMotorcycle,
 };

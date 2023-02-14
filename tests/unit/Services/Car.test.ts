@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
 import CarService from '../../../src/Services/Car.service';
-import { carList, wrongId, foundCar, newCar, updatedData, updatedCar } from './Car.mock';
+import { carList, wrongId, foundCar, newCar, updatedData, updatedCar } from './mocks';
 import TypeError from '../../../src/Utils/TypeError';
 
 describe('Tests Car Service Layer', function () {

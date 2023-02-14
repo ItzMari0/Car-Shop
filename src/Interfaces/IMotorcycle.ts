@@ -5,7 +5,7 @@ interface IMotorcycle {
   color: string;
   status?: boolean | false;
   buyValue: number;
-  category: 'Street' | 'Custom' | 'Trail';
+  category: string;
   engineCapacity: number;
 }
 
