@@ -33,7 +33,7 @@ class MotorcycleService {
   public async updateMotorcycle(id: string, obj: Partial<IMotorcycle>) {
     const motorcycle = await this.model.findOne(id);
     if (!motorcycle) throw new TypeError(404, 'Motorcycle not found');
-    const update = await this.model.updateMotorcycle(id, obj);
+    const update = await this.model.update(id, obj);
     return this.motorcycleDomain(update);
   }
 }
