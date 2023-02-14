@@ -59,7 +59,6 @@ describe('Tests Car Service Layer', function () {
   });
 
   describe('Tests the Update function', function () {
-  
     it('should update the car data', async function () {
       sinon.stub(Model, 'findByIdAndUpdate').resolves(updatedCar);
       sinon.stub(Model, 'findOne').resolves(updatedCar);
