@@ -5,6 +5,6 @@ com um banco de dados MongoDB.
 
 Skills utilizadas:
 - TypeScript
-- Mongoose
+- MongoDB / Mongoose
 - MSC
 - POO
