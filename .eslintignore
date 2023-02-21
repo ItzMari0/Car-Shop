@@ -1,7 +1,0 @@
-node_modules
-dist
-__tests__
-nyc.config.js
-.nyc_output
-.vscode
-coverage
